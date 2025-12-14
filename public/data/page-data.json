@@ -1,0 +1,107 @@
+{
+  "contactBar": {
+    "contactItems": [
+      {
+        "type": "email",
+        "label": "nazarerutuja05@gmail.com",
+        "icon": "/images/icon/mail-icon.svg",
+        "link": "mailto:nazarerutuja05@gmail.com"
+      },
+      {
+        "type": "phone",
+        "label": "+91 9022078420",
+        "icon": "/images/icon/call-icon.svg",
+        "link": "tel:+919022078420"
+      },
+      {
+        "type": "website",
+        "label": "behance.net/rutujanazare1",
+        "icon": "/images/icon/web-icon.svg",
+        "link": "https://www.behance.net/rutujanazare1"
+      }
+    ],
+    "socialItems": [
+      {
+        "platform": "behance",
+        "icon": "/images/icon/dribble-icon.svg",
+        "link": "https://www.behance.net/rutujanazare1"
+      },
+      {
+        "platform": "linkedin",
+        "icon": "/images/icon/linkedin-icon.svg",
+        "link": "https://www.linkedin.com/in/rutuja-nazare-7689b4175?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+      }
+    ]
+  },
+
+  "educationData": {
+    "education": [
+      {
+        "title": "Bachelor of Computer Applications (BCA)",
+        "description": "Completed BCA from Pune University with a foundation in design principles, UI/UX fundamentals, user research, and digital product design."
+      },
+      {
+        "title": "UI/UX Certifications",
+        "description": "Completed multiple UI/UX certifications from Interaction Design Foundation, Great Learning, Udemy, and FutureLearn with specialisation in mobile UX, design thinking, and spatial design."
+      }
+    ],
+
+    "skills": [
+      {
+        "name": "Figma",
+        "icon": "/images/home/education-skill/figma-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Adobe XD",
+        "icon": "/images/home/education-skill/adobe-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Sketch",
+        "icon": "/images/home/education-skill/sketch-icon.svg",
+        "rating": 4
+      },
+      {
+        "name": "Adobe Creative Suite",
+        "icon": "/images/home/education-skill/photoshop-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Miro / FigJam",
+        "icon": "/images/home/education-skill/framer-icon.svg",
+        "rating": 4
+      },
+      {
+        "name": "HTML / CSS",
+        "icon": "/images/home/education-skill/invision-icon.svg",
+        "rating": 3
+      }
+    ]
+  },
+
+  "contactLinks": {
+    "socialLinks": [
+      {
+        "title": "Behance",
+        "href": "https://www.behance.net/rutujanazare1"
+      },
+      {
+        "title": "LinkedIn",
+        "href": "https://www.linkedin.com/in/rutuja-nazare-7689b4175?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+      }
+    ],
+    "contactInfo": [
+      {
+        "type": "email",
+        "label": "nazarerutuja05@gmail.com",
+        "link": "mailto:nazarerutuja05@gmail.com"
+      },
+      {
+        "type": "phone",
+        "label": "+91 9022078420",
+        "link": "tel:+919022078420"
+      }
+    ]
+  }
+}

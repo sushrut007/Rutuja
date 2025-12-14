@@ -1,0 +1,36 @@
+{
+  "workData": [
+    {
+      "image": "/images/work/riomed-healthcare-ui.jpg",
+      "title": "Healthcare Web Platform – UI/UX",
+      "client": "RioMed Technologies Pvt Ltd",
+      "slug": "riomed-healthcare-platform",
+      "linkType": "external",
+      "link": "https://www.riomed.com/"
+    },
+    {
+      "image": "/images/work/riomed-mobile-app.jpg",
+      "title": "Healthcare Mobile App – UX & Interaction Design",
+      "client": "RioMed Technologies Pvt Ltd",
+      "slug": "riomed-mobile-app",
+      "linkType": "pdf",
+      "link": "/pdfs/Appt.pdf"
+    },
+    {
+      "image": "/images/work/machintel-web-app.jpg",
+      "title": "B2B Web Application Design",
+      "client": "Machintel Pvt Ltd",
+      "slug": "b2b-web-application",
+      "linkType": "external",
+      "link": "https://media7.com/"
+    },
+    {
+      "image": "/images/work/marketing-creatives.jpg",
+      "title": "Marketing Creatives & Whitepaper",
+      "client": "Machintel Pvt Ltd",
+      "slug": "marketing-creatives",
+      "linkType": "pdf",
+      "link": "/pdfs/Media 7 Whitepaper - Advertising services.pdf"
+    }
+  ]
+}
