@@ -1,17 +1,36 @@
 "use client";
-import { getDataPath, getImgPath } from "@/utils/image";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+interface ContactItem {
+  type: string;
+  label: string;
+  icon: string;
+  link: string;
+}
+
+interface SocialItem {
+  platform: string;
+  icon: string;
+  link: string;
+}
+
+interface ContactBarData {
+  contactItems: ContactItem[];
+  socialItems: SocialItem[];
+}
+
 const ContactBar = () => {
-  const [contactBarData, setContactBarData] = useState<any>(null);
+  const [contactBarData, setContactBarData] =
+    useState<ContactBarData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(getDataPath("/data/page-data.json"));
-        if (!res.ok) throw new Error("Failed to fetch");
+        const res = await fetch("/data/page-data.json");
+        if (!res.ok) throw new Error("Failed to fetch contact bar data");
         const data = await res.json();
         setContactBarData(data?.contactBar);
       } catch (error) {
@@ -27,25 +46,25 @@ const ContactBar = () => {
       <div className="border-t border-softGray">
         <div className="container">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 md:py-7">
-            
+
             {/* Contact Items */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 md:gap-5 lg:gap-11">
-              {contactBarData?.contactItems?.map((value: any, index: number) => (
+              {contactBarData?.contactItems?.map((item, index) => (
                 <Link
                   key={index}
-                  href={value?.link || "#"}
+                  href={item.link}
                   target="_blank"
                   className="flex items-center gap-2 lg:gap-4 text-sm md:text-base"
                 >
                   <Image
-                    src={getImgPath(value?.icon)}
-                    alt={value?.type}
+                    src={item.icon}
+                    alt={item.type}
                     width={24}
                     height={24}
                     className="min-w-[24px] min-h-[24px]"
                   />
                   <h6 className="text-sm md:text-base xl:text-xl hover:text-primary">
-                    {value?.label}
+                    {item.label}
                   </h6>
                 </Link>
               ))}
@@ -53,15 +72,15 @@ const ContactBar = () => {
 
             {/* Social Items */}
             <div className="flex items-center justify-center md:justify-end gap-4 md:gap-2.5">
-              {contactBarData?.socialItems?.map((value: any, index: number) => (
+              {contactBarData?.socialItems?.map((item, index) => (
                 <Link
                   key={index}
-                  href={value?.link || "#"}
+                  href={item.link}
                   target="_blank"
                 >
                   <Image
-                    src={getImgPath(value?.icon)}
-                    alt={value?.platform}
+                    src={item.icon}
+                    alt={item.platform}
                     width={30}
                     height={30}
                     className="hover:opacity-80"
