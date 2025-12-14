@@ -1,7 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
@@ -12,6 +13,7 @@ body {
   height: 100%;
 }
 
+/* Button hover animation */
 button::before {
   content: "";
   position: absolute;
@@ -19,7 +21,7 @@ button::before {
   left: 0;
   width: 100%;
   height: 0%;
-  background-color: #FE4300; 
+  background-color: #FE4300;
   transition: height 0.3s ease;
   z-index: 0;
 }
@@ -28,42 +30,28 @@ button:hover::before {
   height: 100%;
 }
 
+/* Wave animation */
 .wave {
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
+  animation: wave-animation 2.5s infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
 
 @keyframes wave-animation {
-    0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  
-   20% { transform: rotate(-8.0deg) }
-   30% { transform: rotate(14.0deg) }
-   40% { transform: rotate(-4.0deg) }
-   50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) } 
-  100% { transform: rotate( 0.0deg) }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
-
-
-
-
-@theme {
-  --color-primary: #FE4300;
-  --color-secondary: #868686;
-  --color-softGray: #F0F0F0;
-  --color-mistGray: #D7DCDD;
-  --color-gray: #C0D8E0;
-
-  --breakpoint-xs: 425px;
-}
-
+/* Custom utilities */
 @layer utilities {
   .container {
-    @apply w-full max-w-[80rem] mx-auto mt-0 mb-0 py-0 sm:px-7 px-5;
+    @apply w-full max-w-[80rem] mx-auto px-5 sm:px-7;
   }
   .label {
     @apply text-secondary text-sm font-normal;
@@ -73,50 +61,43 @@ button:hover::before {
   }
 }
 
+/* Base typography */
 @layer base {
   h1 {
     @apply text-4xl md:text-5xl xl:text-7xl 2xl:text-[85px] font-semibold leading-tight;
   }
-
   h2 {
     @apply text-3xl md:text-5xl lg:text-6xl xl:text-[65px] font-semibold;
   }
-
   h3 {
     @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold;
   }
-
   h4 {
     @apply text-4xl;
   }
-
   h5 {
     @apply text-xl xl:text-2xl;
   }
-
   h6 {
     @apply text-sm md:text-base xl:text-xl;
   }
-
   p {
     @apply text-base text-secondary;
   }
 }
 
+/* Print styles */
 @media print {
-  body {
-    background: white !important;
-    color: black !important;
-  }
-
-  header, footer, .navbar, .no-print {
+  header,
+  footer,
+  .navbar,
+  .no-print {
     display: none !important;
   }
 
-  main {
-    padding: 0;
-    margin: 0;
-    width: 100%;
+  body {
+    background: white !important;
+    color: black !important;
   }
 
   * {
@@ -124,17 +105,11 @@ button:hover::before {
     background: transparent !important;
   }
 
-  html, body {
-    height: auto;
-    overflow: visible;
-  }
-
-  .hero-section{
+  .hero-section {
     padding-top: 35px;
   }
 
   .break-page {
-    break-before: page;
     page-break-before: always;
   }
 }
