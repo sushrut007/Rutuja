@@ -1,12 +1,18 @@
 "use client";
-import { getDataPath, getImgPath } from "@/utils/image";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+interface ContactLinks {
+  socialLinks: { title: string; href: string }[];
+  contactInfo: { label: string; link: string }[];
+}
+
 const Contact = () => {
-  const [contactData, setContactData] = useState<any>(null);
+  const [contactData, setContactData] = useState<ContactLinks | null>(null);
   const [submitted, setSubmitted] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -14,22 +20,23 @@ const Contact = () => {
     message: "",
   });
 
+  /* Fetch contact links */
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(getDataPath("/data/page-data.json"));
-        if (!res.ok) throw new Error("Failed to fetch");
+        const res = await fetch("/data/page-data.json");
+        if (!res.ok) throw new Error("Failed to fetch data");
         const data = await res.json();
         setContactData(data?.contactLinks);
       } catch (error) {
-        console.error("Error fetching services:", error);
+        console.error("Error fetching contact data:", error);
       }
     };
 
     fetchData();
   }, []);
 
-  const reset = () => {
+  const resetForm = () => {
     setFormData({
       name: "",
       number: "",
@@ -38,35 +45,39 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: any) => {
+  /* Submit form */
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    fetch("https://formsubmit.co/ajax/nazarerutuja05@gmail.com", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        name: formData.name,
-        number: formData.number,
-        email: formData.email,
-        message: formData.message,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setSubmitted(data.success);
-        reset();
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/nazarerutuja05@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        resetForm();
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -79,12 +90,8 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            
             {/* Contact Form */}
             <form onSubmit={handleSubmit}>
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_subject" value="New Portfolio Contact Message!" />
-
               <div className="flex flex-col gap-7 sm:gap-12">
                 <div className="grid grid-cols-2 gap-8">
                   <div>
@@ -109,7 +116,7 @@ const Contact = () => {
                       required
                       className="input"
                       id="number"
-                      type="number"
+                      type="tel"
                       name="number"
                       value={formData.number}
                       onChange={handleChange}
@@ -139,31 +146,31 @@ const Contact = () => {
                   <textarea
                     required
                     className="input"
-                    name="message"
                     id="message"
+                    name="message"
+                    rows={2}
                     value={formData.message}
                     onChange={handleChange}
-                    rows={2}
                   />
                 </div>
 
                 {submitted && (
                   <div className="flex items-center gap-2">
                     <Image
-                      src={getImgPath("/images/icon/success-icon.svg")}
+                      src="/images/icon/success-icon.svg"
                       alt="success-icon"
                       width={30}
                       height={30}
                     />
                     <p className="text-secondary">
-                      Great! Your message has been sent. I will contact you soon.
+                      Great! Your message has been sent successfully.
                     </p>
                   </div>
                 )}
 
                 <button
                   type="submit"
-                  className="relative overflow-hidden cursor-pointer w-fit py-2 sm:py-3 md:py-5 px-4 sm:px-5 md:px-7 border border-primary rounded-full group"
+                  className="relative overflow-hidden w-fit py-2 sm:py-3 md:py-5 px-4 sm:px-5 md:px-7 border border-primary rounded-full group"
                 >
                   <span className="relative z-10 text-xl font-medium text-primary group-hover:text-white transition-colors duration-300">
                     Send Now
@@ -172,41 +179,36 @@ const Contact = () => {
               </div>
             </form>
 
-            {/* Contact Info + Social Links */}
+            {/* Contact Info */}
             <div className="flex flex-col sm:flex-row md:flex-col justify-between gap-5 md:gap-20 items-center md:items-end">
-              
               {/* Social Links */}
-              <div className="flex flex-wrap flex-row md:flex-col items-start md:items-end gap-4 md:gap-6">
-                {contactData?.socialLinks?.map((value: any, index: any) => (
-                  <div key={index}>
-                    <Link
-                      className="text-base sm:text-lg font-normal text-secondary hover:text-primary"
-                      href={value?.href}
-                      target="_blank"
-                    >
-                      {value?.title}
-                    </Link>
-                  </div>
+              <div className="flex flex-wrap md:flex-col gap-4 md:gap-6">
+                {contactData?.socialLinks?.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    target="_blank"
+                    className="text-base sm:text-lg text-secondary hover:text-primary"
+                  >
+                    {item.title}
+                  </Link>
                 ))}
               </div>
 
               {/* Contact Info */}
-              <div className="flex flex-wrap justify-center gap-5 lg:gap-11 items-end">
-                {contactData?.contactInfo?.map((value: any, index: any) => (
-                  <div key={index}>
-                    <Link
-                      href={value?.link}
-                      target="_blank"
-                      className="text-base lg:text-lg text-black font-normal border-b border-black pb-3 hover:text-primary hover:border-primary"
-                    >
-                      {value?.label}
-                    </Link>
-                  </div>
+              <div className="flex flex-wrap gap-5 lg:gap-11">
+                {contactData?.contactInfo?.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.link}
+                    target="_blank"
+                    className="text-base lg:text-lg text-black border-b border-black pb-3 hover:text-primary hover:border-primary"
+                  >
+                    {item.label}
+                  </Link>
                 ))}
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
