@@ -13,19 +13,19 @@ const Header = () => {
   return (
     <header className="navbar top-0 left-0 z-999 w-full absolute">
       <div className="container">
-        <nav className="py-7">
-          <div className="flex items-center gap-4 sm:gap-8">
-            <div>
+        <nav className="py-4 sm:py-5 md:py-7">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-8">
+            <div className="flex-shrink-0">
               <Logo />
             </div>
 
             {/* Download Resume Button */}
             <button
               onClick={handlePDFDownload}
-              className="relative overflow-hidden cursor-pointer w-fit py-2 sm:py-3 md:py-5 px-4 sm:px-5 md:px-7 border border-primary rounded-full group"
+              className="relative overflow-hidden cursor-pointer w-fit py-2 sm:py-2.5 md:py-3 lg:py-4 px-3 sm:px-4 md:px-6 lg:px-7 border border-primary rounded-full group flex-shrink-0"
             >
-              <span className="relative z-10 text-xl font-medium text-black group-hover:text-white transition-colors duration-300">
-                Download PDF Resume
+              <span className="relative z-10 text-xs sm:text-sm md:text-base lg:text-lg font-medium text-black group-hover:text-white transition-colors duration-300 whitespace-nowrap">
+                Download PDF
               </span>
             </button>
           </div>
