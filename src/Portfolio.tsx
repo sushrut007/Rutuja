@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Mail, Phone, MapPin, GraduationCap, Link, Palette } from "lucide-react";
 import {
   STATS,
   PROJECTS,
@@ -200,13 +201,13 @@ export default function Portfolio() {
             </FadeIn>
             <FadeIn delay={0.2} className="flex flex-col gap-3">
               {[
-                { icon: "📧", label: "Email", val: CONTACT_INFO.email, color: "text-violet-300" },
-                { icon: "📱", label: "Phone", val: CONTACT_INFO.phone, color: "text-cyan-300" },
-                { icon: "📍", label: "Location", val: CONTACT_INFO.location, color: "text-pink-300" },
-                { icon: "🎓", label: "Education", val: "BCA (Pune University)", color: "text-amber-300" },
-              ].map(({ icon, label, val, color }) => (
+                { icon: Mail, label: "Email", val: CONTACT_INFO.email, color: "text-violet-300" },
+                { icon: Phone, label: "Phone", val: CONTACT_INFO.phone, color: "text-cyan-300" },
+                { icon: MapPin, label: "Location", val: CONTACT_INFO.location, color: "text-pink-300" },
+                { icon: GraduationCap, label: "Education", val: "BCA (Pune University)", color: "text-amber-300" },
+              ].map(({ icon: Icon, label, val, color }) => (
                 <div key={label} className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-200 group">
-                  <span className="text-lg w-7 text-center">{icon}</span>
+                  <span className="w-7 flex justify-center text-slate-400 group-hover:text-white transition-colors"><Icon size={20} /></span>
                   <div>
                     <div className="text-slate-500 text-xs uppercase tracking-wider mb-0.5">{label}</div>
                     <div className={`text-sm font-medium ${color}`}>{val}</div>
@@ -272,9 +273,13 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {exp.description}
-                  </p>
+                  {exp.details ? (
+                    <ul className="text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 space-y-2">
+                      {exp.details.map((detail, idx) => (
+                        <li key={idx}>{detail}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </FadeIn>
             ))}
@@ -313,10 +318,10 @@ export default function Portfolio() {
                   </a>
                 </div> */}
                 <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
+                  href={p.link || undefined}
+                  target={p.link ? "_blank" : undefined}
+                  rel={p.link ? "noopener noreferrer" : undefined}
+                  className={p.link ? "block cursor-pointer" : "block cursor-default"}
                 >
                   <div className={`group relative rounded-2xl border border-white/8 bg-white/[0.02] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${p.border} ${p.glow}`}>
 
@@ -342,9 +347,11 @@ export default function Portfolio() {
                       ))}
                     </div>
 
-                    <span className="text-sm font-semibold text-violet-400">
-                      View Project →
-                    </span>
+                    {p.link && (
+                      <span className="text-sm font-semibold text-violet-400">
+                        View Project →
+                      </span>
+                    )}
 
                   </div>
                 </a>
@@ -362,17 +369,20 @@ export default function Portfolio() {
             <SectionTitle>Education</SectionTitle>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-5">
-            {EDUCATION_LIST.map((edu, i) => (
+            {EDUCATION_LIST.map((edu, i) => {
+              const Icon = edu.icon;
+              return (
               <FadeIn key={edu.degree} delay={0.1 + i * 0.1}>
                 <div className={`group relative rounded-2xl border border-white/8 bg-white/[0.02] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${edu.glow} ${edu.border}`}>
                   <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${edu.color} opacity-0 group-hover:opacity-[0.04] transition-opacity`} />
-                  <div className="text-3xl mb-4">{edu.icon}</div>
+                  <div className="mb-4 text-slate-400 group-hover:text-white transition-colors"><Icon size={32} /></div>
                   <h3 className={`font-bold text-base text-white mb-1.5 bg-gradient-to-r ${edu.color} bg-clip-text text-transparent`}>{edu.degree}</h3>
                   <p className="text-slate-300 text-sm font-medium mb-1">{edu.school}</p>
                   <p className="text-slate-500 text-xs">{edu.year}</p>
                 </div>
               </FadeIn>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -397,11 +407,11 @@ export default function Portfolio() {
 
               <div className="flex flex-col gap-4">
                 {[
-                  { icon: "📧", label: "Email", val: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}`, color: "hover:border-violet-500/40 hover:bg-violet-500/5 hover:text-violet-300" },
-                  { icon: "🔗", label: "LinkedIn", val: CONTACT_INFO.linkedin.replace("https://www.", ""), href: CONTACT_INFO.linkedin, color: "hover:border-cyan-500/40 hover:bg-cyan-500/5 hover:text-cyan-300" },
-                  { icon: "🎨", label: "Behance", val: CONTACT_INFO.behance.replace("https://www.", ""), href: CONTACT_INFO.behance, color: "hover:border-pink-500/40 hover:bg-pink-500/5 hover:text-pink-300" },
-                  { icon: "📱", label: "Phone", val: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone.replace(/ /g, "")}`, color: "hover:border-amber-500/40 hover:bg-amber-500/5 hover:text-amber-300" },
-                ].map(({ icon, label, val, href, color }) => (
+                  { icon: Mail, label: "Email", val: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}`, color: "hover:border-violet-500/40 hover:bg-violet-500/5 hover:text-violet-300" },
+                  { icon: Link, label: "LinkedIn", val: CONTACT_INFO.linkedin.replace("https://www.", ""), href: CONTACT_INFO.linkedin, color: "hover:border-cyan-500/40 hover:bg-cyan-500/5 hover:text-cyan-300" },
+                  { icon: Palette, label: "Behance", val: CONTACT_INFO.behance.replace("https://www.", ""), href: CONTACT_INFO.behance, color: "hover:border-pink-500/40 hover:bg-pink-500/5 hover:text-pink-300" },
+                  { icon: Phone, label: "Phone", val: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone.replace(/ /g, "")}`, color: "hover:border-amber-500/40 hover:bg-amber-500/5 hover:text-amber-300" },
+                ].map(({ icon: Icon, label, val, href, color }) => (
                   <a
                     key={label}
                     href={href}
@@ -409,8 +419,8 @@ export default function Portfolio() {
                     rel="noreferrer"
                     className={`group flex items-center gap-4 p-4 rounded-xl border border-white/8 bg-white/[0.02] text-slate-400 text-sm font-medium transition-all duration-300 hover:translate-x-2 hover:shadow-lg ${color}`}
                   >
-                    <span className="text-xl w-8 text-center flex-shrink-0 group-hover:scale-110 transition">
-                      {icon}
+                    <span className="w-8 flex justify-center flex-shrink-0 group-hover:scale-110 transition text-slate-500 group-hover:text-current">
+                      <Icon size={22} />
                     </span>
 
                     <div>

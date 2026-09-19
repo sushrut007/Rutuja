@@ -1,3 +1,5 @@
+import { GraduationCap, Award } from "lucide-react";
+
 const SKILLS = {
   "Product & Interaction Design": [
     "Information Architecture",
@@ -46,7 +48,7 @@ const PROJECTS = [
     glow: "hover:shadow-emerald-500/20",
     tag: "Web App UI/UX",
     tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    link: "https://www.riomed.com/",
+    link: "",
   },
   {
     name: "Medi Connect-AI",
@@ -68,7 +70,7 @@ const PROJECTS = [
     glow: "hover:shadow-violet-500/20",
     tag: "Web Design",
     tagColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
-    link: "https://media7.com/",
+    link: "",
   },
   {
     name: "Marketing Creatives",
@@ -81,6 +83,17 @@ const PROJECTS = [
     tagColor: "bg-pink-500/10 text-pink-400 border-pink-500/20",
     link: "/pdfs/Media 7 Whitepaper - Advertising services.pdf",
   },
+  {
+    name: "Clinical Chat Functionality",
+    desc: "Redesigned the healthcare Communication module for clinical collaboration. Enhanced the experience by surfacing critical information such as participants, user roles, message previews, unread status, conversation priority, and quick actions.",
+    tech: ["UI/UX Design", "Healthcare", "Collaboration"],
+    accent: "from-amber-500 to-orange-500",
+    border: "hover:border-amber-500/50",
+    glow: "hover:shadow-amber-500/20",
+    tag: "Feature Redesign",
+    tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    link: "",
+  }
 ];
 
 const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Contact"];
@@ -91,27 +104,45 @@ const EXPERIENCE_LIST = [
     title: "Senior UI/UX Designer",
     company: "RioMed Technologies Pvt. Ltd.",
     type: "Fulltime",
-    description: "Lead end-to-end product design for enterprise healthcare SaaS platform. Redesigned core clinical workflows, reducing task complexity by 40%. Built a centralized Figma Design System achieving 90% component reuse. Audited components to achieve 90%+ WCAG 2.1 AA compliance."
+    details: [
+      "Lead end-to-end product design for flagship enterprise healthcare SaaS platform (Cellma), architecting workflows across 8 core clinical modules including Patient 360, Appointments, Vitals, Tasks, Communication, and Reporting.",
+      "Redesigned Patient Search, Clinical 360, and vital sign workflows, reducing cognitive load and task complexity by 40% across daily clinical operations.",
+      "Built and governed a centralized Figma Design System encompassing 30+ standardized UI patterns, achieving 90% component reuse and accelerating frontend sprint cycles by 25%.",
+      "Designed and launched an integrated, HIPAA-compliant care-team chat and smart notification ecosystem, reducing clinician communication steps by 35%.",
+      "Streamlined navigation pathways and complex data-entry forms, driving a 30% improvement in clinician task efficiency.",
+      "Audited and optimized core platform components to achieve 90%+ WCAG 2.1 AA and ADA compliance, ensuring fully accessible and inclusive experiences.",
+      "Integrated AI tools (ChatGPT, Claude) to accelerate clinical scenario mapping, user research synthesis, and microcopy iteration.",
+      "Partnered closely with Product Managers, Frontend Engineers, and QA teams to define technical constraints, run Design QA, and maintain high implementation fidelity."
+    ]
   },
   {
     year: "June 2022 - May 2023",
     title: "Senior Graphics & UI Designer",
     company: "Machintel Pvt. Ltd.",
     type: "Fulltime",
-    description: "Spearheaded UI/UX design for responsive web applications and enterprise dashboards. Established reusable UI component libraries and grid frameworks. Translated complex business requirements into validated Figma prototypes."
+    details: [
+      "Spearheaded UI/UX design for responsive web applications, enterprise dashboards, and high-converting campaign platforms.",
+      "Translated complex business requirements into user flows, wireframes, and interactive Figma prototypes validated through stakeholder reviews and usability checks.",
+      "Established reusable UI component libraries and responsive grid frameworks, ensuring visual and functional brand consistency across digital touchpoints.",
+      "Collaborated with engineering teams to ensure pixel-perfect visual execution, asset optimization, and cross-browser responsiveness."
+    ]
   },
   {
     year: "Nov 2018 - May 2022",
     title: "Graphic & Visual Designer",
     company: "Machbizz Marketers Pvt. Ltd.",
     type: "Fulltime",
-    description: "Designed user-centered responsive landing pages, microsites, and promotional interfaces. Created wireframes and clickable mockups for B2B web experiences, optimizing information architecture and conversion pathways."
+    details: [
+      "Designed user-centered responsive landing pages, microsites, and promotional web interfaces, optimizing information architecture and conversion pathways.",
+      "Created wireframes, site flows, and clickable mockups for B2B web experiences, improving user journey clarity and engagement.",
+      "Collaborated with marketing and development teams to establish responsive layout templates and cross-device visual standards."
+    ]
   }
 ];
 
 const EDUCATION_LIST = [
   {
-    icon: "🎓",
+    icon: GraduationCap,
     degree: "Bachelor of Computer Applications (BCA)",
     school: "Pune University, Pune, India",
     year: "Graduated",
@@ -120,7 +151,7 @@ const EDUCATION_LIST = [
     border: "hover:border-violet-500/30",
   },
   {
-    icon: "🏫",
+    icon: Award,
     degree: "UI/UX Certifications",
     school: "IxDF, Coursera, Great Learning, Udemy",
     year: "Completed",
