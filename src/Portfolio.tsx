@@ -145,9 +145,9 @@ export default function Portfolio() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href={`mailto:${CONTACT_INFO.email}`}
-              className="px-7 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-500 hover:to-pink-500 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-violet-500/30">
-              Get in Touch
+            <a href="/Rutuja_Nazare2026.pdf" target="_blank" rel="noreferrer"
+              className="px-7 py-3 rounded-xl font-bold bg-white text-black hover:bg-slate-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+              Resume
             </a>
             <a href={CONTACT_INFO.behance} target="_blank" rel="noreferrer"
               className="px-7 py-3 rounded-xl font-semibold text-sm border border-white/10 text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all duration-200">
@@ -169,7 +169,7 @@ export default function Portfolio() {
 
       {/* STATS */}
       <section className="relative z-10 border-y border-white/5 bg-white/[0.02]">
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-y md:divide-y-0 divide-white/5">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 grid grid-cols-2 md:grid-cols-3 gap-0 divide-x divide-y md:divide-y-0 divide-white/5">
           {STATS.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.1} className="px-6 py-5 text-center">
               <div className={`text-3xl font-black bg-gradient-to-br ${s.color} bg-clip-text text-transparent mb-1`}>{s.value}</div>
@@ -189,13 +189,13 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <FadeIn delay={0.1}>
               <p className="text-slate-400 text-base leading-relaxed mb-5">
-                UI/UX Designer with <span className="text-white font-medium">7 years of experience</span> crafting user-centered, accessible digital products for healthcare and B2B platforms. I specialize in wireframing, prototyping, interaction design, usability testing, and building scalable design systems.
+                Senior UI/UX & Product Designer with <span className="text-white font-medium">7+ years of experience</span> leading end-to-end design for complex enterprise SaaS and healthcare platforms.
               </p>
               <p className="text-slate-400 text-base leading-relaxed mb-5">
-                Currently at <span className="text-violet-300 font-medium">RioMed Technologies</span> leading end-to-end UI/UX design for healthcare platforms.
+                Proven track record of architecting scalable design systems <span className="text-violet-300 font-medium">(90% component reuse)</span>, cutting clinician and enterprise task complexity by 40%, and driving WCAG 2.1 AA-compliant experiences.
               </p>
               <p className="text-slate-400 text-base leading-relaxed">
-                Passionate about <span className="text-cyan-300 font-medium">accessible design</span>, conducting user research, and transforming complex requirements into intuitive, WCAG/ADA-compliant interfaces.
+                Adept at bridging <span className="text-cyan-300 font-medium">user research, product strategy, and engineering execution</span> in fast-paced Agile environments.
               </p>
             </FadeIn>
             <FadeIn delay={0.2} className="flex flex-col gap-3">

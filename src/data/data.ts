@@ -1,7 +1,33 @@
 const SKILLS = {
-  "Design Tools": ["Figma", "Adobe XD", "Sketch", "Photoshop", "Illustrator"],
-  "Prototyping & Collaboration": ["Miro", "FigJam", "InVision", "Axure"],
-  "Other Skills": ["HTML/CSS", "Wireframing", "User Research", "Usability Testing", "WCAG/ADA Compliance"]
+  "Product & Interaction Design": [
+    "Information Architecture",
+    "Complex Workflow Simplification",
+    "Wireframing",
+    "Prototyping",
+    "Micro-interactions",
+    "Responsive Web & Mobile"
+  ],
+  "UX Research & Validation": [
+    "User Interviews",
+    "Journey Mapping",
+    "Persona Development",
+    "Usability Testing",
+    "Heuristic Evaluation",
+    "Design QA"
+  ],
+  "Design Systems & Architecture": [
+    "Figma & Figma Make",
+    "Design Tokens",
+    "Multi-Platform Libraries",
+    "Accessibility (WCAG 2.1 AA)",
+    "Dev Mode & Handoff"
+  ],
+  "Strategy & Collaboration": [
+    "Product Discovery",
+    "Agile/Scrum",
+    "Cross-Functional Leadership",
+    "AI-Accelerated UX Research"
+  ]
 };
 
 const STATS = [
@@ -23,15 +49,15 @@ const PROJECTS = [
     link: "https://www.riomed.com/",
   },
   {
-    name: "Healthcare Mobile App",
-    desc: "UX & Interaction Design for RioMed. Focused on accessibility and intuitive navigation for end-users.",
-    tech: ["Adobe XD", "Interaction Design", "Wireframing"],
-    accent: "from-yellow-500 to-orange-500",
-    border: "hover:border-yellow-500/50",
-    glow: "hover:shadow-yellow-500/20",
-    tag: "Mobile UX",
-    tagColor: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-    link: "/pdfs/Appt.pdf",
+    name: "Medi Connect-AI",
+    desc: "An AI-powered appointment booking app that helps patients describe their health concern in plain language and get matched to the right doctor — no medical knowledge required.",
+    tech: ["AI Integration", "UX/UI Design", "Healthcare"],
+    accent: "from-blue-500 to-indigo-500",
+    border: "hover:border-blue-500/50",
+    glow: "hover:shadow-blue-500/20",
+    tag: "AI Healthcare UX",
+    tagColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    link: "https://www.behance.net/gallery/255616235/AI-Healthcare-Appointment-Booking",
   },
   {
     name: "B2B Web Application",
@@ -61,28 +87,25 @@ const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Co
 
 const EXPERIENCE_LIST = [
   {
-    year: "2023 - Present",
-    title: "UI/UX Designer",
-    company: "RioMed Technologies Pvt Ltd",
+    year: "May 2023 - Present",
+    title: "Senior UI/UX Designer",
+    company: "RioMed Technologies Pvt. Ltd.",
     type: "Fulltime",
-    description:
-      "Leading end-to-end UI/UX design for healthcare platforms. Conducted user research and usability testing. Designed wireframes, prototypes, micro-interactions, and high-fidelity screens. Built and maintained a design system ensuring accessibility and consistency across products."
+    description: "Lead end-to-end product design for enterprise healthcare SaaS platform. Redesigned core clinical workflows, reducing task complexity by 40%. Built a centralized Figma Design System achieving 90% component reuse. Audited components to achieve 90%+ WCAG 2.1 AA compliance."
   },
   {
-    year: "2022 - 2023",
-    title: "Sr. Graphics & UI Designer",
-    company: "Machintel Pvt Ltd",
+    year: "June 2022 - May 2023",
+    title: "Senior Graphics & UI Designer",
+    company: "Machintel Pvt. Ltd.",
     type: "Fulltime",
-    description:
-      "Created wireframes, prototypes, and high-fidelity web application designs in Figma. Designed websites, landing pages, infographics, and social media creatives. Built reusable components and improved UX for responsiveness and navigation."
+    description: "Spearheaded UI/UX design for responsive web applications and enterprise dashboards. Established reusable UI component libraries and grid frameworks. Translated complex business requirements into validated Figma prototypes."
   },
   {
-    year: "2018 - 2022",
-    title: "Graphics Designer",
-    company: "Machbizz Marketers Pvt Ltd",
+    year: "Nov 2018 - May 2022",
+    title: "Graphic & Visual Designer",
+    company: "Machbizz Marketers Pvt. Ltd.",
     type: "Fulltime",
-    description:
-      "Designed social media creatives, banners, GIFs, animations, logos, landing pages, presentations, and branding materials. Improved visual communication for marketing campaigns and conducted visual testing for newsletters and landing pages."
+    description: "Designed user-centered responsive landing pages, microsites, and promotional interfaces. Created wireframes and clickable mockups for B2B web experiences, optimizing information architecture and conversion pathways."
   }
 ];
 
@@ -90,7 +113,7 @@ const EDUCATION_LIST = [
   {
     icon: "🎓",
     degree: "Bachelor of Computer Applications (BCA)",
-    school: "Pune University",
+    school: "Pune University, Pune, India",
     year: "Graduated",
     color: "from-violet-600 to-indigo-600",
     glow: "hover:shadow-violet-500/20",
@@ -99,7 +122,7 @@ const EDUCATION_LIST = [
   {
     icon: "🏫",
     degree: "UI/UX Certifications",
-    school: "Interaction Design Foundation, Great Learning, Udemy",
+    school: "IxDF, Coursera, Great Learning, Udemy",
     year: "Completed",
     color: "from-cyan-600 to-teal-600",
     glow: "hover:shadow-cyan-500/20",
@@ -109,10 +132,10 @@ const EDUCATION_LIST = [
 
 const CONTACT_INFO = {
   email: "nazarerutuja05@gmail.com",
-  phone: "+91 9022078420",
+  phone: "+91-9022078420",
   behance: "https://www.behance.net/rutujanazare1",
   linkedin: "https://www.linkedin.com/in/rutuja-nazare-7689b4175",
-  location: "India"
+  location: "Pune, India"
 };
 
 const SKILL_COLORS = [
